@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0c0b0a">
+<title>时之洄游 · 大沢川地形研究 × 综合模型 | The Time Migrator</title>
+<meta name="description" content="大沢川上游雪谷地形研究与 1:50、48 层实体地形模型；以及由相机、渔轮、手柄、玩具枪与渔网重组的综合模型《时之洄游》。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230c0b0a'/%3E%3Ccircle cx='32' cy='32' r='18' fill='none' stroke='%23ff4b12' stroke-width='2'/%3E%3Cpath d='M14 40c8-12 18-16 36-12M20 48c10-10 20-13 30-11' fill='none' stroke='%23f2ede3' stroke-width='1.5'/%3E%3C/svg%3E">
+<link rel="preload" as="image" href="assets/img/hero-model.jpg">
+<link rel="preload" as="image" href="assets/img/video-poster.jpg">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#prologue">跳到正文 / SKIP TO CONTENT</a>
+
+<!-- ============ FIXED CHROME ============ -->
+<div class="grain" aria-hidden="true"></div>
+<div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+
+<header class="chrome" id="chrome" data-theme="dark">
+  <a class="brand" href="#top" aria-label="回到首页">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 44 44" fill="none">
+        <circle cx="22" cy="22" r="17" stroke="currentColor" stroke-width="1"/>
+        <circle cx="22" cy="22" r="3" fill="#ff4b12" stroke="none"/>
+        <path d="M22 1v9M22 34v9M1 22h9M34 22h9" stroke="currentColor" stroke-width="1"/>
+      </svg>
+    </span>
+    <span class="brand-type">
+      <strong>时之洄游</strong>
+      <small>THE TIME MIGRATOR</small>
+    </span>
+  </a>
+
+  <div class="chrome-chapter" aria-live="polite">
+    <span id="chapterCode">00</span>
+    <i aria-hidden="true"></i>
+    <span id="chapterLabel">序 / PROLOGUE</span>
+  </div>
+
+  <div class="chrome-actions">
+    <span class="chrome-coord">35.3104°N&nbsp;&nbsp;138.2073°E</span>
+    <button class="index-toggle" id="indexToggle" type="button" aria-expanded="false" aria-controls="menu">
+      <span class="index-toggle-label">INDEX</span>
+      <span class="index-toggle-icon" aria-hidden="true"><i></i><i></i></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============ FULLSCREEN INDEX ============ -->
+<div class="menu" id="menu" aria-hidden="true">
+  <div class="menu-inner">
+    <div class="menu-lead">
+      <span class="eyebrow">CONTENTS / 目录</span>
+      <p>从一段雪谷，<br>到一台时间机器。</p>
+      <div class="menu-meta">
+        <span>OSAWA RIVER / 2026</span>
+        <span>TOPO · SURVEY · DRAWING · MODEL</span>
+      </div>
+    </div>
+    <nav class="menu-nav" aria-label="全站目录">
+      <a href="#prologue" data-target="prologue" data-preview="assets/img/final-wide.jpg"><span>00</span><em>序</em><small>PROLOGUE / 两条线索</small></a>
+      <a href="#site" data-target="site" data-preview="assets/img/site-hiker.jpg"><span>01</span><em>场</em><small>SITE / 选一段雪谷</small></a>
+      <a href="#survey" data-target="survey" data-preview="assets/img/site-river.jpg"><span>02</span><em>研</em><small>SURVEY / 从河岸到雪谷</small></a>
+      <a href="#terrain" data-target="terrain" data-preview="assets/img/terrain-angle.jpg"><span>03</span><em>形</em><small>TERRAIN / 48 层地形</small></a>
+      <a href="#anatomy" data-target="anatomy" data-preview="assets/img/camera-parts.jpg"><span>04</span><em>解</em><small>ANATOMY / 五件旧物</small></a>
+      <a href="#recombination" data-target="recombination" data-preview="assets/img/final-low.jpg"><span>05</span><em>组</em><small>RECOMBINATION / 重新接合</small></a>
+      <a href="#final" data-target="final" data-preview="assets/img/final-portrait.jpg"><span>06</span><em>终</em><small>MOTION / 最终形态</small></a>
+      <a href="#statement" data-target="statement" data-preview="assets/img/concept-1.jpg"><span>07</span><em>念</em><small>STATEMENT / 设计理念</small></a>
+    </nav>
+    <div class="menu-preview" aria-hidden="true">
+      <img id="menuPreview" src="assets/img/final-wide.jpg" alt="">
+      <span class="menu-preview-caption">FIG. 05 / 综合模型</span>
+    </div>
+    <div class="menu-foot">
+      <span>吴天浩 / 2026227093</span>
+      <span>FIELD STUDY + OBJECT ASSEMBLY</span>
+      <span>2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SIDE RAIL ============ -->
+<aside class="rail" aria-label="章节索引">
+  <div class="rail-line" aria-hidden="true"></div>
+  <ol>
+    <li><a href="#prologue" data-target="prologue"><span>00</span><em>序</em></a></li>
+    <li><a href="#site" data-target="site"><span>01</span><em>场</em></a></li>
+    <li><a href="#survey" data-target="survey"><span>02</span><em>研</em></a></li>
+    <li><a href="#terrain" data-target="terrain"><span>03</span><em>形</em></a></li>
+    <li><a href="#anatomy" data-target="anatomy"><span>04</span><em>解</em></a></li>
+    <li><a href="#recombination" data-target="recombination"><span>05</span><em>组</em></a></li>
+    <li><a href="#final" data-target="final"><span>06</span><em>终</em></a></li>
+    <li><a href="#statement" data-target="statement"><span>07</span><em>念</em></a></li>
+  </ol>
+</aside>
+
+<div class="cursor" id="cursor" aria-hidden="true"><span></span><b></b></div>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero" data-chapter="00" data-name="PROLOGUE" data-cn="序" data-theme="dark">
+  <div class="hero-media" id="heroMedia" aria-hidden="true">
+    <picture>
+      <source media="(max-width: 860px)" srcset="assets/img/final-portrait.jpg">
+      <img src="assets/img/hero-model.jpg" alt="" fetchpriority="high">
+    </picture>
+  </div>
+  <div class="hero-shade" aria-hidden="true"></div>
+  <div class="hero-copy">
+    <div class="hero-topline">
+      <span class="eyebrow">FIELD STUDY × OBJECT ASSEMBLY / 2026</span>
+      <span class="hero-no">NO. 01 — 07</span>
+    </div>
+    <p class="hero-kicker">大沢川 · 雪谷地形研究 <span aria-hidden="true">×</span> 旧物重组的时间机器</p>
+    <h1 class="hero-title" aria-label="时之洄游">
+      <span style="--i:0">时</span><span style="--i:1">之</span><span style="--i:2">洄</span><span style="--i:3">游</span><b aria-hidden="true">.</b>
+    </h1>
+    <div class="hero-bottom">
+      <p class="hero-desc">把 301 × 318 米的雪谷压进 50 × 50 厘米的 48 层地形，<br class="desk-only">再把五件旧物，接成一台可以在时间里洄游的机器。</p>
+      <a class="hero-enter" href="#prologue">
+        <span>进入场域</span>
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v17M5 13l7 7 7-7" stroke="currentColor" stroke-width="1.2"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="hero-specs" aria-label="项目关键数据">
+    <div><span>35.3104°N</span><small>OSAWA / JAPAN</small></div>
+    <div><span>1:50</span><small>MODEL SCALE</small></div>
+    <div><span>48</span><small>CONTOUR LAYERS</small></div>
+    <div><span>50 × 50</span><small>CM / TERRAIN</small></div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <span>SCROLL TO ENTER</span>
+    <i></i>
+  </div>
+  <div class="hero-side" aria-hidden="true">OSAWA RIVER / SITE STUDY / 2026</div>
+</section>
+
+<!-- ============ PROLOGUE ============ -->
+<section class="section prologue" id="prologue" data-chapter="00" data-name="PROLOGUE" data-cn="序" data-theme="dark">
+  <div class="section-shell">
+    <header class="chapter-head">
+      <div class="chapter-meta reveal">
+        <span class="chapter-num">00</span>
+        <span class="chapter-rule"></span>
+        <span class="chapter-en">PROLOGUE / 两条线索</span>
+      </div>
+      <div class="chapter-title-row">
+        <h2 class="display reveal">一段地形，<br>一台机器。</h2>
+        <p class="chapter-note reveal" style="--delay:.12s">TWO SCALES.<br>ONE NARRATIVE.</p>
+      </div>
+    </header>
+
+    <div class="prologue-grid">
+      <div class="prologue-text">
+        <p class="lead reveal">大沢川上游的雪谷，被转译为一片白色的时间地形；五件被拆散的日常旧物，在这片地形上重新接合。</p>
+        <p class="reveal" style="--delay:.08s">地形不是综合模型的背景，而是叙事的第一层结构。48 层等高切片把 301 × 318 米的雪谷压缩成 50 × 50 厘米的舞台；相机、渔轮、手柄、玩具枪与帆布包，则成为这台机器的感官与器官。</p>
+        <p class="reveal" style="--delay:.14s">重组不是修复。让原本的功能失效，再让另一套关系发生——一半像机器，一半像从时间里打捞上来的遗物。</p>
+      </div>
+
+      <div class="equation reveal" aria-label="从场地到模型的两组转换">
+        <div class="equation-row">
+          <span class="eq-a">301<small>×</small>318<small>m</small></span>
+          <i aria-hidden="true">→</i>
+          <span class="eq-b">50<small>×</small>50<small>cm</small></span>
+          <em>48 层等高切片 / 1:50</em>
+        </div>
+        <div class="equation-row">
+          <span class="eq-a">5<small>件</small></span>
+          <i aria-hidden="true">→</i>
+          <span class="eq-b">1<small>台</small></span>
+          <em>拆解 / 重组 / 半成品</em>
+        </div>
+        <div class="equation-caption">TERRAIN PROVIDES THE STAGE.<br>OBJECTS PROVIDE THE ORGANS.</div>
+      </div>
+    </div>
+
+    <div class="concept-doors">
+      <a class="concept-door reveal" href="#terrain">
+        <div class="door-img"><img src="assets/img/terrain-angle.jpg" alt="48 层白色地形实体模型，45 度视角" loading="lazy"></div>
+        <div class="door-copy">
+          <span class="door-index">A / TERRAIN</span>
+          <h3>大沢川的 48 层</h3>
+          <p>选点 · 调研 · 编号 · 切割 · 叠层</p>
+          <span class="door-arrow" aria-hidden="true">↗</span>
+        </div>
+      </a>
+      <a class="concept-door reveal" href="#anatomy" style="--delay:.1s">
+        <div class="door-img"><img src="assets/img/camera-parts.jpg" alt="照相机拆解后的零件平铺图" loading="lazy"></div>
+        <div class="door-copy">
+          <span class="door-index">B / OBJECT</span>
+          <h3>五件旧物的第二次生命</h3>
+          <p>拆开 · 分类 · 接线 · 定型</p>
+          <span class="door-arrow" aria-hidden="true">↗</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SITE ============ -->
+<section class="section site" id="site" data-chapter="01" data-name="SITE" data-cn="场" data-theme="dark">
+  <div class="site-hero">
+    <img src="assets/img/site-hiker.jpg" alt="登山者沿富士山雪坡向上，裸露的黑色火山岩与积雪交错" loading="lazy" data-parallax="0.08">
+    <div class="site-hero-shade" aria-hidden="true"></div>
+    <div class="site-hero-copy">
+      <span class="eyebrow">01 / SITE — 富士山・大沢川上游</span>
+      <p>在雪线以上，<br>先找一段可以被建造的谷地。</p>
+      <div class="site-coord">
+        <span>35.3104° N</span><span>138.2073° E</span><span>301 × 318 M</span>
+      </div>
+    </div>
+    <div class="site-hero-stamp" aria-hidden="true">OSAWA<br>SNOW VALLEY<br><span>2026</span></div>
+  </div>
+
+  <div class="section-shell site-body">
+    <header class="chapter-head">
+      <div class="chapter-meta reveal">
+        <span class="chapter-num">01</span>
+        <span class="chapter-rule"></span>
+        <span class="chapter-en">SITE / 场地选择</span>
+      </div>
+      <div class="chapter-title-row">
+        <h2 class="display reveal">先确定一块<br>有高差的场地。</h2>
+        <p class="chapter-note reveal" style="--delay:.12s">LOCATION<br>35.3104 N / 138.2073 E</p>
+      </div>
+      <p class="lead lead-narrow reveal">场地选择不是找一张好看的风景，而是确定一个有边界、有高差、可以被转译为 1:50 模型的范围。</p>
+    </header>
+
+    <div class="site-data-grid">
+      <div class="site-data reveal">
+        <dl>
+          <div><dt>位置 / LOCATION</dt><dd>富士山・大沢川上游<br>（大沢口）</dd></div>
+          <div><dt>取样范围 / FOOTPRINT</dt><dd>301 × 318 m</dd></div>
+          <div><dt>面积 / AREA</dt><dd>0.10 km²</dd></div>
+          <div><dt>等高线 / CONTOUR</dt><dd>5 m <span>/</span> 网格 20 m</dd></div>
+          <div><dt>坐标 / COORD.</dt><dd>35.3104 N<br>138.2073 E</dd></div>
+        </dl>
+        <p class="micro">SOURCE / TOPO · OPENSTREETMAP<br>框选范围仅用于地形取样</p>
+      </div>
+
+      <figure class="site-map figure reveal" data-cursor="VIEW">
+        <div class="map-frame">
+          <img src="assets/img/site-map.png" alt="TOPO 地图取样界面，301 × 318 米取样框落在大沢川河道转弯处" loading="lazy">
+          <span class="map-corner tl" aria-hidden="true"></span>
+          <span class="map-corner tr" aria-hidden="true"></span>
+          <span class="map-corner bl" aria-hidden="true"></span>
+          <span class="map-corner br" aria-hidden="true"></span>
+          <span class="map-scan" aria-hidden="true"></span>
+          <span class="map-pin" aria-hidden="true">SAMPLE 01</span>
+        </div>
+        <figcaption><span>FIG. 01 / TOPO 取样界面</span><span>5 M CONTOUR / 20 M MESH</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="site-reasons">
+      <article class="reason reveal">
+        <span class="reason-num">01</span>
+        <h3>地形张力</h3>
+        <p>301 × 318 米内高差集中，沟谷、坡面与雪脊清晰；在 50 × 50 厘米的模型上依然可读。</p>
+        <small>TOPOGRAPHIC TENSION</small>
+      </article>
+      <article class="reason reveal" style="--delay:.08s">
+        <span class="reason-num">02</span>
+        <h3>地质叙事</h3>
+        <p>深雪、冻融与火山岩叠加，形成“冰封遗迹”的想象；地貌本身就带着被时间掩埋的质感。</p>
+        <small>GEOLOGICAL NARRATIVE</small>
+      </article>
+      <article class="reason reveal" style="--delay:.16s">
+        <span class="reason-num">03</span>
+        <h3>可转译性</h3>
+        <p>5 米等高线可以转到 1:50 的层积模型；48 层切片，恰好落在课程周期可完成的尺度里。</p>
+        <small>TRANSLATABLE SCALE</small>
+      </article>
+      <article class="reason reveal" style="--delay:.24s">
+        <span class="reason-num">04</span>
+        <h3>叙事留白</h3>
+        <p>无常住建筑，只有山径、雪脊与河道。场地越克制，旧物重组的机器越有进入的空间。</p>
+        <small>ROOM FOR FICTION</small>
+      </article>
+    </div>
+
+    <div class="site-quote reveal">
+      <span class="quote-mark" aria-hidden="true">“</span>
+      <p>一侧是陡坡，一侧是曲流，<br>高差在很短的距离内发生。</p>
+      <span class="quote-cite">FIELD NOTE / 01</span>
+    </div>
+
+    <div class="site-fiction">
+      <figure class="fiction-visual reveal">
+        <img class="fiction-main" src="assets/img/concept-2.jpg" alt="雪谷中的科考信标概念示意：半埋的设备和蓝色信号光束" loading="lazy">
+        <img class="fiction-inset" src="assets/img/concept-1.jpg" alt="雪谷遗迹与信标概念示意的远景" loading="lazy">
+        <figcaption><span>CONCEPT STUDY / 场地叙事</span><span>非最终模型 / 2026</span></figcaption>
+      </figure>
+      <div class="fiction-copy">
+        <span class="eyebrow reveal">FIELD FICTION / 场地叙事</span>
+        <h3 class="reveal">在进入模型之前，<br>场地先被写成一个故事。</h3>
+        <p class="reveal">雪崩之后，科考设备被半埋在雪层中，残破却仍在工作。深雪、冻融与火山岩，不只是地貌条件，也是一种“被时间掩埋”的叙事质地。</p>
+        <p class="reveal">这项场地研究最终把雪谷转译为 48 层地形；综合模型再把这层地形，变成一台时间机器的舞台。</p>
+        <small class="reveal">FIELD NARRATIVE / 冰封遗迹 · 雪的沉积 · 信号的回声</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-panorama">
+    <img src="assets/img/site-river.jpg" alt="冬季的大沢川河岸，夕阳落在雪山与河面之间" loading="lazy" data-parallax="0.06">
+    <div class="panorama-caption">
+      <span>大沢川 / 冬季河岸</span>
+      <span>THE RIVER AS A TIME LAYER</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SURVEY ============ -->
+<section class="section survey" id="survey" data-chapter="02" data-name="SURVEY" data-cn="研" data-theme="light">
+  <div class="section-shell">
+    <header class="chapter-head">
+      <div class="chapter-meta reveal">
+        <span class="chapter-num">02</span>
+        <span class="chapter-rule"></span>
+        <span class="chapter-en">SURVEY / 场地调研</span>
+      </div>
+      <div class="chapter-title-row">
+        <h2 class="display reveal">从可到达的河岸，<br>到不可抵达的雪谷。</h2>
+        <p class="chapter-note reveal" style="--delay:.12s">FROM RIVERBANK<br>TO SNOW VALLEY</p>
+      </div>
+      <p class="lead lead-narrow reveal">调研只保留会改变设计判断的四个变量：尺度、高差、环境与进入方式。前期河岸给了日常的尺度，最终雪谷给了叙事的高度。</p>
+    </header>
+
+    <div class="survey-compare reveal">
+      <article class="compare-card">
+        <div class="compare-head">
+          <span class="compare-letter">A</span>
+          <div><small>RIVERBANK / 前期河岸</small><h3>可到达的日常</h3></div>
+          <span class="compare-status">SURVEYED</span>
+        </div>
+        <div class="compare-body">
+          <div class="compare-img"><img src="assets/img/site-green-river.jpg" alt="春季河岸，步道、浅水与成排树木" loading="lazy"></div>
+          <dl class="compare-stats">
+            <div><dt>尺度</dt><dd>160 × 45 m <small>/ 7,200 m²</small></dd></div>
+            <div><dt>岸高</dt><dd>1.8 – 2.5 m</dd></div>
+            <div><dt>周边</dt><dd>滨河步道 + 低层居民区</dd></div>
+            <div><dt>植被</dt><dd>柳树 / 枫树 / 卵石滩</dd></div>
+          </dl>
+        </div>
+        <p class="compare-note">人的活动沿河道东西向移动；傍晚是使用高峰，散步、静坐、遛狗、下到河滩。</p>
+      </article>
+
+      <div class="compare-arrow" aria-hidden="true">
+        <span>可达性</span>
+        <svg viewBox="0 0 160 36" fill="none"><path d="M2 18h150M140 7l12 11-12 11" stroke="currentColor" stroke-width="1"/><path d="M2 18c40-16 75-16 129 0" stroke="currentColor" stroke-width=".6" stroke-dasharray="3 5"/></svg>
+        <span>叙事张力</span>
+      </div>
+
+      <article class="compare-card compare-card-b">
+        <div class="compare-head">
+          <span class="compare-letter">B</span>
+          <div><small>SNOW VALLEY / 最终选点</small><h3>不可抵达的雪谷</h3></div>
+          <span class="compare-status">SELECTED</span>
+        </div>
+        <div class="compare-body">
+          <div class="compare-img"><img src="assets/img/site-fuji-aerial.jpg" alt="富士山火山坡面航拍，沟谷与植被带形成放射状地貌" loading="lazy"></div>
+          <dl class="compare-stats">
+            <div><dt>尺度</dt><dd>301 × 318 m <small>/ 0.10 km²</small></dd></div>
+            <div><dt>地形</dt><dd>高差集中 / 沟谷切割</dd></div>
+            <div><dt>地表</dt><dd>深雪 / 冻融 / 火山岩</dd></div>
+            <div><dt>进入</dt><dd>无常住建筑 / 山径进入</dd></div>
+          </dl>
+        </div>
+        <p class="compare-note">可达性让位于叙事张力。场地从“日常景观”变成“叙事装置的第一层结构”。</p>
+      </article>
+    </div>
+
+    <div class="variables-head reveal">
+      <span class="eyebrow">FOUR VARIABLES / 四个现场变量</span>
+      <p>它们不改变场地的面积，却改变了模型要保留什么。</p>
+    </div>
+
+    <div class="variables">
+      <article class="variable reveal">
+        <div class="variable-img"><img src="assets/img/site-village.jpg" alt="雪后的低层住宅与街道" loading="lazy"></div>
+        <span class="variable-num">01</span>
+        <h3>周边</h3>
+        <p>低层住宅、滨河步道、桥与主干道；噪声被绿化带隔开。进入雪谷后，建筑退场，山径成为唯一的入口。</p>
+        <small>CONTEXT</small>
+      </article>
+      <article class="variable reveal" style="--delay:.08s">
+        <div class="variable-img"><img src="assets/img/site-snow-trees.jpg" alt="雪坡上的树木与电线的冬日景象" loading="lazy"></div>
+        <span class="variable-num">02</span>
+        <h3>植被</h3>
+        <p>河岸是柳、枫、灌木与水生草本；高处过渡为火山砾石与低矮植被。树木退成黑色的竖线，雪成为唯一的底色。</p>
+        <small>VEGETATION</small>
+      </article>
+      <article class="variable reveal" style="--delay:.16s">
+        <div class="variable-img"><img src="assets/img/site-ridge.jpg" alt="登山者站在富士山岩脊上" loading="lazy"></div>
+        <span class="variable-num">03</span>
+        <h3>人的活动</h3>
+        <p>通勤穿行、散步停留、下到河滩；在雪谷里，人的活动收束为登山、科考与路径依赖。身影成为尺度。</p>
+        <small>HUMAN TRACE</small>
+      </article>
+      <article class="variable reveal" style="--delay:.24s">
+        <div class="variable-img"><img src="assets/img/site-promenade.jpg" alt="河岸步道、河流与远处雪山的俯瞰" loading="lazy"></div>
+        <span class="variable-num">04</span>
+        <h3>进入方式</h3>
+        <p>东西向步道与北侧支路把日常带入河岸；上游雪谷主要靠山径进入。越难抵达，越适合安放想象。</p>
+        <small>ACCESS</small>
+      </article>
+    </div>
+
+    <div class="survey-closing">
+      <p class="reveal">“可达性让位于叙事张力。”</p>
+      <div class="survey-closing-meta reveal" style="--delay:.1s"><span>FINAL SAMPLE / 301 × 318 M</span><span>0.10 KM²</span><span>5 M CONTOUR</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TERRAIN ============ -->
+<section class="section terrain" id="terrain" data-chapter="03" data-name="TERRAIN" data-cn="形" data-theme="light">
+  <div class="section-shell">
+    <header class="chapter-head terrain-head">
+      <div class="chapter-meta reveal">
+        <span class="chapter-num">03</span>
+        <span class="chapter-rule"></span>
+        <span class="chapter-en">TERRAIN / 图纸、切割与叠层</span>
+      </div>
+      <div class="chapter-title-row">
+        <h2 class="display reveal">把地形拆成 48 个编号，<br>再一层层叠回去。</h2>
+        <div class="chapter-note terrain-big-num reveal" style="--delay:.12s"><span>48</span><small>CONTOUR<br>LAYERS</small></div>
+      </div>
+      <p class="lead lead-narrow reveal">5 米等高线转为 1:50；闭合与断开线被清理、分类，再按高程拆成 48 层。编号先于切割——每一件在图纸上都有唯一身份。</p>
+    </header>
+
+    <div class="terrain-specs reveal">
+      <div><span>1:50</span><small>SCALE / 比例</small></div>
+      <div><span>48</span><small>LAYERS / 层数</small></div>
+      <div><span>50 × 50</span><small>CM / 成品尺寸</small></div>
+      <div><span>2–3</span><small>MM / 分层板材</small></div>
+      <div><span>5</span><small>MM / 基板</small></div>
+    </div>
+
+    <div class="terrain-process-intro">
+      <article class="process-step reveal">
+        <span>01</span><h3>等高线清理</h3><p>5 m 等高线转为 1:50；闭合 / 断开线分类，删去噪声。</p>
+      </article>
+      <article class="process-step reveal" style="--delay:.06s">
+        <span>02</span><h3>单件拆分</h3><p>48 个地形层逐层拆开；同层再按开口、孤岛分件。</p>
+      </article>
+      <article class="process-step reveal" style="--delay:.12s">
+        <span>03</span><h3>电子编号</h3><p>01–48 按高程排序；同层从左到右，编号即装配顺序。</p>
+      </article>
+      <article class="process-step reveal" style="--delay:.18s">
+        <span>04</span><h3>套料排版</h3><p>50 × 50 cm 板材套料；切缝、编号、定位点一起出图。</p>
+      </article>
+    </div>
+  </div>
+
+  <!-- Layer stack interactive -->
+  <div class="layer-lab" data-theme-zone="dark">
+    <div class="layer-lab-grid">
+      <div class="layer-copy">
+        <span class="eyebrow">03.1 / LAYER STACK</span>
+        <h2 class="display display-sm reveal">让 48 层<br>从地形里展开。</h2>
+        <p class="reveal">等高线不是线，而是坡、脊、谷与阴影。拖动滑块，把压实的 48 层地形拆成一段可被观察的剖面。</p>
+        <div class="layer-control reveal">
+          <label for="layerRange">层积展开 / EXPLODE</label>
+          <div class="range-wrap">
+            <input id="layerRange" type="range" min="0" max="100" value="58" aria-describedby="layerHint">
+            <span class="range-fill" aria-hidden="true"></span>
+          </div>
+          <div class="layer-readout"><span id="layerPct">58%</span><span id="layerHint">DRAG TO EXPLODE</span></div>
+        </div>
+        <div class="layer-legend reveal">
+          <span><i class="legend-dot low"></i>01 / 低</span>
+          <span><i class="legend-dot high"></i>48 / 高</span>
+          <span class="schematic">SCHEMATIC / 结构示意</span>
+        </div>
+        <div class="layer-actions reveal">
+          <button type="button" data-layer-action="collapse">合拢</button>
+          <button type="button" data-layer-action="expand">展开</button>
+        </div>
+      </div>
+      <div class="layer-stage reveal" aria-hidden="true">
+        <div class="layer-index">48</div>
+        <div class="layer-stack" id="layerStack"></div>
+        <div class="layer-axis"><span>Z</span><i></i><span>0</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-shell">
+    <!-- Drawings -->
+    <div class="drawing-block">
+      <div class="drawing-copy">
+        <span class="eyebrow reveal">03.2 / DRAWING</span>
+        <h2 class="display display-sm reveal">图纸不是装饰，<br>是施工顺序。</h2>
+        <p class="reveal">装配顺序图负责“找件”，套料排版图负责“切件”。48 层按高程与层序排列，先按编号找件，再按排版切割。</p>
+        <dl class="spec-list reveal">
+          <div><dt>图纸比例</dt><dd>1:50</dd></div>
+          <div><dt>切割方式</dt><dd>激光切割</dd></div>
+          <div><dt>装配方式</dt><dd>逐层粘接 / 打磨 / 补缝</dd></div>
+          <div><dt>材料</dt><dd>PVC · 亚克力 · 泡沫板</dd></div>
+        </dl>
+      </div>
+      <div class="drawing-plates">
+        <figure class="drawing-plate reveal">
+          <img src="assets/img/drawing-order.png" alt="48 层地形按制作顺序编号的装配图纸" loading="lazy">
+          <figcaption><span>A / ORDER</span><span>01–48 / 高程与层序</span></figcaption>
+        </figure>
+        <figure class="drawing-plate drawing-plate-nest reveal" style="--delay:.12s">
+          <img src="assets/img/drawing-nest.png" alt="50 × 50 厘米板材的套料排版图纸" loading="lazy">
+          <figcaption><span>B / NEST</span><span>50 × 50 CM 板材</span></figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- Making -->
+    <div class="making-block">
+      <header class="making-head">
+        <span class="eyebrow reveal">03.3 / MAKING</span>
+        <h2 class="display display-sm reveal">排版、裁切、叠层。</h2>
+        <p class="reveal">把图纸变成件，把件变成层，把层变成地形。5 mm 基板承托，2–3 mm 分层板材逐层粘接，最后打磨补缝，让等高线从线变成阴影。</p>
+      </header>
+
+      <div class="making-grid">
+        <figure class="work-photo work-photo-a reveal">
+          <img src="assets/img/terrain-work-1.jpg" alt="在木桌上对照图纸检查分层板材的轮廓" loading="lazy">
+          <figcaption><span>01 / CHECK</span><span>对照编号检查开口与孤岛</span></figcaption>
+        </figure>
+        <figure class="work-photo work-photo-b reveal" style="--delay:.08s">
+          <img src="assets/img/terrain-work-2.jpg" alt="手工为分层板材涂胶，准备叠层粘接" loading="lazy">
+          <figcaption><span>02 / BOND</span><span>逐层涂胶，保持接缝对齐</span></figcaption>
+        </figure>
+        <div class="making-steps reveal" style="--delay:.12s">
+          <div><span>01</span><p>按排版图<br>裁切板材</p></div>
+          <div><span>02</span><p>逐件切割<br>与编号</p></div>
+          <div><span>03</span><p>按编号<br>叠层粘接</p></div>
+          <div><span>04</span><p>打磨补缝<br>完成实体</p></div>
+        </div>
+        <figure class="work-photo work-photo-c reveal" style="--delay:.16s">
+          <img src="assets/img/terrain-process.jpg" alt="叠层粘接后的白色地形模型俯视过程照片" loading="lazy">
+          <figcaption><span>03 / STACK</span><span>48 层逐渐闭合为一段地形</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="making-quote reveal">
+        <span class="quote-mark" aria-hidden="true">“</span>
+        <p>编号先于切割。<br>每一件在图纸上都有唯一身份。</p>
+        <span class="quote-cite">DRAWING NOTE / 48</span>
+      </div>
+    </div>
+
+    <!-- Terrain model viewer -->
+    <div class="terrain-viewer-head">
+      <span class="eyebrow reveal">03.4 / THE OBJECT</span>
+      <h2 class="display reveal">48 层之后，<br>地形开始有阴影。</h2>
+      <p class="reveal">侧光进入时，等高线不再是线，而是坡、脊、谷与阴影。模型在 50 × 50 厘米的范围内，保留一段雪谷的高差。</p>
+    </div>
+  </div>
+
+  <div class="terrain-stage" data-theme-zone="dark">
+    <div class="terrain-stage-top">
+      <div class="terrain-view-buttons" role="group" aria-label="切换地形模型视角">
+        <button type="button" class="is-active" data-terrain="assets/img/terrain-angle.jpg" data-caption="45° 视角 / 48 层叠合后的坡面与脊线" data-index="01">45°</button>
+        <button type="button" data-terrain="assets/img/terrain-top.jpg" data-caption="俯视 / 等高线结构与河道走向" data-index="02">俯视</button>
+        <button type="button" data-terrain="assets/img/terrain-detail.jpg" data-caption="细节 / 层积、接缝与等高线的阴影" data-index="03">细节</button>
+        <button type="button" data-terrain="assets/img/terrain-elevation.jpg" data-caption="立面 / 谷坡高差与层间节奏" data-index="04">立面</button>
+      </div>
+      <span class="terrain-stage-index" id="terrainIndex">01 / 04</span>
+    </div>
+    <figure class="terrain-viewer">
+      <img id="terrainMain" src="assets/img/terrain-angle.jpg" alt="48 层白色地形实体模型，45 度视角" loading="lazy">
+      <div class="terrain-frame" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+      <figcaption id="terrainCaption">45° 视角 / 48 层叠合后的坡面与脊线</figcaption>
+      <button class="expand-btn" type="button" data-lightbox-trigger aria-label="放大查看地形模型">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 3H3v6M15 3h6v6M9 21H3v-6M21 15v6h-6" stroke="currentColor" stroke-width="1.2"/></svg>
+      </button>
+    </figure>
+    <div class="terrain-thumbs" aria-label="地形模型细节">
+      <button type="button" class="terrain-thumb is-active" data-terrain="assets/img/terrain-angle.jpg" data-caption="45° 视角 / 48 层叠合后的坡面与脊线" data-index="01"><img src="assets/img/terrain-angle.jpg" alt="" loading="lazy"><span>45°</span></button>
+      <button type="button" class="terrain-thumb" data-terrain="assets/img/terrain-top.jpg" data-caption="俯视 / 等高线结构与河道走向" data-index="02"><img src="assets/img/terrain-top.jpg" alt="" loading="lazy"><span>俯视</span></button>
+      <button type="button" class="terrain-thumb" data-terrain="assets/img/terrain-detail.jpg" data-caption="细节 / 层积、接缝与等高线的阴影" data-index="03"><img src="assets/img/terrain-detail.jpg" alt="" loading="lazy"><span>细节</span></button>
+      <button type="button" class="terrain-thumb" data-terrain="assets/img/terrain-elevation.jpg" data-caption="立面 / 谷坡高差与层间节奏" data-index="04"><img src="assets/img/terrain-elevation.jpg" alt="" loading="lazy"><span>立面</span></button>
+    </div>
+  </div>
+
+  <div class="terrain-model-caption section-shell">
+    <div class="model-meta">
+      <div><span>实体模型</span><strong>50 × 50 CM</strong></div>
+      <div><span>比例</span><strong>1:50</strong></div>
+      <div><span>层数</span><strong>48</strong></div>
+      <div><span>材料</span><strong>5 MM 基板 + 2–3 MM 分层</strong></div>
+    </div>
+    <p class="quote-large reveal">“地形不是背景，<br>而是叙事的第一层结构。”</p>
+  </div>
+</section>
+
+<!-- ============ ANATOMY ============ -->
+<section class="section anatomy" id="anatomy" data-chapter="04" data-name="ANATOMY" data-cn="解" data-theme="light">
+  <div class="section-shell">
+    <header class="chapter-head">
+      <div class="chapter-meta reveal">
+        <span class="chapter-num">04</span>
+        <span class="chapter-rule"></span>
+        <span class="chapter-en">ANATOMY / 单个物体拆解</span>
+      </div>
+      <div class="chapter-title-row">
+        <h2 class="display reveal">拆开，<br>才能重新接上。</h2>
+        <p class="chapter-note reveal" style="--delay:.12s">FIVE OBJECTS<br>ONE SECOND LIFE</p>
+      </div>
+      <p class="lead lead-narrow reveal">拆解不是破坏，而是把物件从原来的用途里解放出来。外壳、光学、机械、电路、织物与绳结被摊平在同一张桌面上，等待另一套逻辑。</p>
+    </header>
+
+    <div class="anatomy-index reveal" role="tablist" aria-label="选择要查看的物件">
+      <button type="button" role="tab" aria-selected="true" aria-controls="objectPanel" data-object="camera">
+        <span>01</span><em>照相机</em><small>CAMERA</small>
+      </button>
+      <button type="button" role="tab" aria-selected="false" aria-controls="objectPanel" data-object="rod">
+        <span>02</span><em>钓鱼竿</em><small>FISHING ROD</small>
+      </button>
+      <button type="button" role="tab" aria-selected="false" aria-controls="objectPanel" data-object="gamepad">
+        <span>03</span><em>游戏手柄</em><small>CONTROLLER</small>
+      </button>
+      <button type="button" role="tab" aria-selected="false" aria-controls="objectPanel" data-object="gun">
+        <span>04</span><em>玩具枪</em><small>TOY GUN</small>
+      </button>
+      <button type="button" role="tab" aria-selected="false" aria-controls="objectPanel" data-object="bag">
+        <span>05</span><em>帆布包</em><small>CANVAS BAG</small>
+      </button>
+    </div>
+
+    <div class="anatomy-panel reveal" id="objectPanel" role="tabpanel" tabindex="0" aria-live="polite">
+      <div class="anatomy-visual">
+        <div class="object-stage" id="objectStage">
+          <img class="object-img is-active" id="objectImgA" src="assets/img/camera-full.jpg" alt="一台完整的黑色 VANTAGE SHOOTER 胶片相机">
+          <img class="object-img" id="objectImgB" src="assets/img/camera-parts.jpg" alt="照相机拆解后零件在白色桌面上整齐平铺">
+          <div class="object-scan" aria-hidden="true"></div>
+          <span class="object-corner tl" aria-hidden="true"></span>
+          <span class="object-corner tr" aria-hidden="true"></span>
+          <span class="object-corner bl" aria-hidden="true"></span>
+          <span class="object-corner br" aria-hidden="true"></span>
+          <span class="object-huge" id="objectHuge" aria-hidden="true">CAMERA</span>
+          <div class="object-states" role="group" aria-label="切换原件与拆解状态">
+            <button type="button" class="is-active" data-object-state="0">原件</button>
+            <button type="button" data-object-state="1">拆解零件</button>
+          </div>
+          <span class="object-state-label" id="objectStateLabel">ORIGINAL / 原件</span>
+        </div>
+        <div class="object-side-note" id="objectSideNote">
+          <span>135 FILM CAMERA</span>
+          <span>约 140 × 75 × 50 MM</span>
+        </div>
+      </div>
+
+      <div class="anatomy-info">
+        <div class="object-meta"><span id="objectIndex">01 / 05</span><span id="objectEn">CAMERA</span></div>
+        <h3 id="objectTitle">照相机 / 捕捉时间</h3>
+        <p class="object-lead" id="objectLead">镜头把世界框进一个矩形，快门把流动的时间切成一个瞬间。拆开后，光学、机械与电路第一次被放在同一张桌面上。</p>
+        <div class="object-role">
+          <span>原功能</span><strong id="objectOrigin">捕捉 / 定格</strong>
+          <span>时间角色</span><strong id="objectRole">观测窗 / 时间切片</strong>
+        </div>
+        <dl class="object-dl">
+          <div><dt>拆解手段</dt><dd id="objectMethod">螺纹 · 卡扣 · 排线插接 · 破坏性拆解</dd></div>
+          <div><dt>零件谱系</dt><dd id="objectParts">外壳 / 光学 / 机械 / 电路</dd></div>
+        </dl>
+        <p class="object-quote" id="objectQuote">“相机留住过去，穿梭机挣脱定格。”</p>
+        <div class="object-nav">
+          <button type="button" id="objectPrev" aria-label="上一个物件"><span aria-hidden="true">←</span> PREV</button>
+          <span id="objectProgress"><i style="width:20%"></i></span>
+          <button type="button" id="objectNext" aria-label="下一个物件">NEXT <span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="anatomy-foot reveal">
+      <p>拆解不是把东西变少，<br>而是让关系显形。</p>
+      <div class="anatomy-foot-meta">
+        <span>TOOLS / 螺丝刀 · 撬棒 · 剪钳</span>
+        <span>METHOD / 螺纹 · 卡扣 · 排线 · 绳结</span>
+      </div>
+    </div>
+
+    <div class="base-note reveal">
+      <div class="base-note-img"><img src="assets/img/terrain-top.jpg" alt="地形模型的俯视，层叠白色板材形成弯曲的等高线" loading="lazy"></div>
+      <div>
+        <span class="eyebrow">THE SIXTH MATERIAL / 曲面底座</span>
+        <h3>不是地面，<br>是被弯曲的时间。</h3>
+        <p>白色层板一层层错开，形成柔和的曲面。它既是承托装置的底座，也是“相对论式”时空弯曲的微缩模型：五个视角，一个倾斜的舞台。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RECOMBINATION ============ -->
+<section class="section recombination" id="recombination" data-chapter="05" data-name="RECOMBINATION" data-cn="组" data-theme="dark">
+  <div class="section-shell">
+    <header class="chapter-head">
+      <div class="chapter-meta reveal">
+        <span class="chapter-num">05</span>
+        <span class="chapter-rule"></span>
+        <span class="chapter-en">RECOMBINATION / 综合模型制作过程</span>
+      </div>
+      <div class="chapter-title-row">
+        <h2 class="display reveal">不隐藏接口，<br>让重组成为造型。</h2>
+        <p class="chapter-note reveal" style="--delay:.12s">FIVE OBJECTS<br>ONE TIME MACHINE</p>
+      </div>
+      <p class="lead lead-narrow reveal">胶、绳、线、螺丝全部露在外面。机器不是被完成，而是被临时拼合：一半像机器，一半像从时间里打捞上来的遗物。</p>
+    </header>
+
+    <div class="assembly-steps">
+      <article class="assembly-step reveal"><span>01</span><h3>收集</h3><p>相机、手柄、玩具枪、渔轮、帆布包，以及废弃电路板、线材与网。</p><small>COLLECT</small></article>
+      <article class="assembly-step reveal" style="--delay:.06s"><span>02</span><h3>拆解</h3><p>按螺纹、卡扣、排线与绳结，把物件分离成可重组的零件。</p><small>DISASSEMBLE</small></article>
+      <article class="assembly-step reveal" style="--delay:.12s"><span>03</span><h3>分类</h3><p>按“观测、牵引、操控、能量、连接”重新标记零件，让功能先于形状。</p><small>SORT</small></article>
+      <article class="assembly-step reveal" style="--delay:.18s"><span>04</span><h3>搭骨</h3><p>以曲面底座为舞台，用金属支架、螺杆与线材建立主体结构。</p><small>FRAME</small></article>
+      <article class="assembly-step reveal" style="--delay:.24s"><span>05</span><h3>接线</h3><p>排线、铜线、麻绳与渔网缠绕骨架；接口不隐藏，成为造型的一部分。</p><small>WIRE</small></article>
+      <article class="assembly-step reveal" style="--delay:.3s"><span>06</span><h3>定型</h3><p>调整重心与朝向，让机械臂伸出画面，停在一个“正在启动”的瞬间。</p><small>POSE</small></article>
+    </div>
+
+    <div class="assembly-board">
+      <div class="assembly-media reveal">
+        <img src="assets/img/final-symmetry.jpg" alt="综合模型正面，相机、渔轮、手柄、玩具枪和渔网固定在白色层积底座上" loading="lazy">
+        <span class="assembly-label">FIG. 06 / 综合模型 · 正面</span>
+        <span class="assembly-bracket tl" aria-hidden="true"></span>
+        <span class="assembly-bracket tr" aria-hidden="true"></span>
+        <span class="assembly-bracket bl" aria-hidden="true"></span>
+        <span class="assembly-bracket br" aria-hidden="true"></span>
+        <div class="hotspots" id="hotspots">
+          <button class="hotspot" type="button" data-hotspot="0" style="--x:26%;--y:37%" aria-label="观测窗：相机镜头"><span>01</span><i></i><em>观测窗</em></button>
+          <button class="hotspot" type="button" data-hotspot="1" style="--x:44%;--y:46%" aria-label="牵引索：渔轮与鱼线"><span>02</span><i></i><em>牵引索</em></button>
+          <button class="hotspot" type="button" data-hotspot="2" style="--x:61%;--y:51%" aria-label="控制台：手柄"><span>03</span><i></i><em>控制台</em></button>
+          <button class="hotspot" type="button" data-hotspot="3" style="--x:77%;--y:54%" aria-label="能量口：玩具枪"><span>04</span><i></i><em>能量口</em></button>
+          <button class="hotspot" type="button" data-hotspot="4" style="--x:53%;--y:27%" aria-label="记忆核心：电路板"><span>05</span><i></i><em>记忆核心</em></button>
+          <button class="hotspot" type="button" data-hotspot="5" style="--x:48%;--y:70%" aria-label="时间之网：渔网与麻绳"><span>06</span><i></i><em>时间之网</em></button>
+          <button class="hotspot" type="button" data-hotspot="6" style="--x:52%;--y:86%" aria-label="曲面舞台：48 层底座"><span>07</span><i></i><em>曲面舞台</em></button>
+        </div>
+      </div>
+
+      <aside class="hotspot-panel reveal" aria-live="polite">
+        <span class="eyebrow" id="hotspotKicker">NODE / 02</span>
+        <h3 id="hotspotTitle">牵引索</h3>
+        <p id="hotspotBody">蓝色渔轮与鱼线，锚定、拉扯不同时空的坐标。收放之间，远处的未知被拉回掌心。</p>
+        <div class="hotspot-meta">
+          <span id="hotspotMaterial">MATERIAL / 渔轮 · 鱼线</span>
+          <span id="hotspotFunction">FUNCTION / 锚定</span>
+        </div>
+        <button type="button" class="hotspot-cycle" id="hotspotCycle">下一个节点 <span aria-hidden="true">→</span></button>
+        <div class="hotspot-progress"><span id="hotspotProgressBar"></span></div>
+      </aside>
+    </div>
+
+    <div class="assembly-details">
+      <figure class="detail-tile detail-tile-tall reveal">
+        <img src="assets/img/final-reel.jpg" alt="综合模型细节，蓝色渔轮、白色相机外壳与缠绕的铜线" loading="lazy">
+        <figcaption><span>01 / TENSION</span><span>渔轮、鱼线与铜线缠绕</span></figcaption>
+      </figure>
+      <figure class="detail-tile reveal" style="--delay:.06s">
+        <img src="assets/img/final-parts.jpg" alt="综合模型细节，相机零件、彩色线轴、渔网与麻绳交织" loading="lazy">
+        <figcaption><span>02 / KNOT</span><span>网、绳与旧零件的接合</span></figcaption>
+      </figure>
+      <figure class="detail-tile reveal" style="--delay:.12s">
+        <img src="assets/img/final-top.jpg" alt="综合模型细节，裸露电路板、镜头与电线" loading="lazy">
+        <figcaption><span>03 / CIRCUIT</span><span>裸露的电路与接口</span></figcaption>
+      </figure>
+      <div class="detail-caption reveal">
+        <span class="eyebrow">MATERIAL LANGUAGE</span>
+        <p>相机捕捉瞬间，渔轮牵引时空，手柄操控跃迁，玩具枪迸发能量；渔网把散落的时刻打成结。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL ============ -->
+<section class="section final" id="final" data-chapter="06" data-name="MOTION" data-cn="终" data-theme="dark">
+  <div class="section-shell">
+    <header class="chapter-head">
+      <div class="chapter-meta reveal">
+        <span class="chapter-num">06</span>
+        <span class="chapter-rule"></span>
+        <span class="chapter-en">MOTION / 最终形态</span>
+      </div>
+      <div class="chapter-title-row">
+        <h2 class="display reveal">一台停不下来的机器，<br>停在时间的斜坡上。</h2>
+        <p class="chapter-note reveal" style="--delay:.12s">FINAL OBJECT<br>2026 / MIXED MEDIA</p>
+      </div>
+      <p class="lead lead-narrow reveal">它不是为了抵达某个具体的年代，而是为了保留“想要穿越”的冲动。</p>
+    </header>
+  </div>
+
+  <div class="orbit-stage">
+    <div class="orbit-frame" id="orbitFrame">
+      <video id="orbitVideo" class="orbit-video" src="assets/video/model-orbit.mp4" poster="assets/img/video-poster.jpg" muted playsinline loop preload="metadata" aria-label="综合模型旋转影像"></video>
+      <div class="orbit-overlay" aria-hidden="true"></div>
+      <div class="orbit-ui">
+        <div class="orbit-top">
+          <span>LIVE OBJECT / 360° STUDY</span>
+          <span id="orbitTime">00:00 — 00:05</span>
+        </div>
+        <div class="orbit-hint" id="orbitHint">
+          <svg viewBox="0 0 64 32" fill="none" aria-hidden="true"><path d="M2 16h52M46 8l10 8-10 8M62 16H52M18 8L8 16l10 8" stroke="currentColor" stroke-width="1.2"/></svg>
+          <span>拖动画面 / DRAG TO TURN</span>
+        </div>
+        <div class="orbit-bottom">
+          <button class="orbit-play" id="orbitPlay" type="button" aria-label="暂停旋转影像">
+            <svg class="icon-pause" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 5v14M16 5v14" stroke="currentColor" stroke-width="1.4"/></svg>
+            <svg class="icon-play" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 5l10 7-10 7V5z" stroke="currentColor" stroke-width="1.4"/></svg>
+          </button>
+          <div class="orbit-track" aria-hidden="true"><span id="orbitProgress"></span></div>
+          <span class="orbit-scale">模型旋转记录 / MODEL ORBIT</span>
+        </div>
+      </div>
+    </div>
+    <div class="orbit-caption">
+      <span>影像 / 作者拍摄</span>
+      <span>综合材料：旧电子零件 · 渔网 · 麻绳 · 电线 · 层叠纸板</span>
+      <span>尺寸可变</span>
+    </div>
+  </div>
+
+  <div class="section-shell final-body">
+    <div class="final-statement-grid">
+      <p class="final-statement reveal">相机捕捉瞬间，<br>渔轮牵引时空，<br>手柄操控跃迁，<br>玩具枪迸发能量。</p>
+      <div class="final-statement-copy">
+        <p class="reveal">它们被固定在一块扭曲的白色底座上：一半像机器，一半像从时间里打捞上来的遗物。曲面层板提供一片被扭曲的时空舞台；渔网把所有时刻彼此勾连。</p>
+        <p class="reveal" style="--delay:.08s">技术是人类探索时间的工具，但技术本身也会产生过剩与废弃。走向未来的同时，不能割裂与过去的联结——带着历史的经验，再向未来前行。</p>
+      </div>
+    </div>
+
+    <div class="final-gallery">
+      <figure class="gallery-item gallery-wide reveal">
+        <button type="button" data-lightbox-trigger data-src="assets/img/final-wide.jpg" data-caption="综合模型 / 侧面全景" data-gallery="final">
+          <img src="assets/img/final-wide.jpg" alt="综合模型侧面全景，机械臂与管道向两侧伸展" loading="lazy">
+        </button>
+        <figcaption><span>01 / PANORAMA</span><span>综合模型 · 侧面全景</span></figcaption>
+      </figure>
+      <figure class="gallery-item gallery-portrait reveal" style="--delay:.06s">
+        <button type="button" data-lightbox-trigger data-src="assets/img/final-portrait.jpg" data-caption="综合模型 / 低角度" data-gallery="final">
+          <img src="assets/img/final-portrait.jpg" alt="综合模型低角度，机器从白色底座向上生长" loading="lazy">
+        </button>
+        <figcaption><span>02 / LOW ANGLE</span><span>低角度 · 倾斜的世界</span></figcaption>
+      </figure>
+      <figure class="gallery-item reveal" style="--delay:.12s">
+        <button type="button" data-lightbox-trigger data-src="assets/img/final-detail.jpg" data-caption="综合模型 / 镜头、电路与蓝色渔轮" data-gallery="final">
+          <img src="assets/img/final-detail.jpg" alt="综合模型细节，镜头、电路与蓝色渔轮" loading="lazy">
+        </button>
+        <figcaption><span>03 / DETAIL</span><span>镜头、电路与蓝色渔轮</span></figcaption>
+      </figure>
+      <figure class="gallery-item reveal" style="--delay:.18s">
+        <button type="button" data-lightbox-trigger data-src="assets/img/final-close.jpg" data-caption="综合模型 / 机械臂与黑色背景" data-gallery="final">
+          <img src="assets/img/final-close.jpg" alt="综合模型机械臂在黑色背景中伸展" loading="lazy">
+        </button>
+        <figcaption><span>04 / ARM</span><span>机械臂 · 正在启动</span></figcaption>
+      </figure>
+      <figure class="gallery-item gallery-wide reveal" style="--delay:.24s">
+        <button type="button" data-lightbox-trigger data-src="assets/img/final-low.jpg" data-caption="综合模型 / 白色地形底座" data-gallery="final">
+          <img src="assets/img/final-low.jpg" alt="综合模型低角度正面，白色层积底座托起机械装置" loading="lazy">
+        </button>
+        <figcaption><span>05 / STAGE</span><span>白色地形 · 弯曲的舞台</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="final-quote reveal">
+      <span class="eyebrow">THE ONLY REASON / 唯一理由</span>
+      <p>不是为了抵达某个具体的年代，<br>而是为了保留“想要穿越”的冲动。</p>
+      <span class="quote-cite">DESIGN NOTE / 2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATEMENT ============ -->
+<section class="section statement" id="statement" data-chapter="07" data-name="STATEMENT" data-cn="念" data-theme="light">
+  <div class="statement-topo" aria-hidden="true"></div>
+  <div class="section-shell">
+    <header class="chapter-head">
+      <div class="chapter-meta reveal">
+        <span class="chapter-num">07</span>
+        <span class="chapter-rule"></span>
+        <span class="chapter-en">STATEMENT / 设计理念</span>
+      </div>
+      <h2 class="statement-title reveal">用普通人熟悉的旧物，<br>造一台属于幻想的<br>时空飞行器。</h2>
+    </header>
+
+    <div class="statement-grid">
+      <article class="statement-col reveal">
+        <span class="eyebrow">01 / MATERIAL</span>
+        <h3>关于材料</h3>
+        <p>装置全部使用废旧电子元件、线材、渔网与回收材料拼接。技术是人类用来探索时间的工具，但技术本身也会产生过剩与废弃。旧物的“时间属性”，让它们比崭新的材料更适合谈论时间。</p>
+      </article>
+      <article class="statement-col reveal" style="--delay:.1s">
+        <span class="eyebrow">02 / TIME</span>
+        <h3>关于时间</h3>
+        <p>层叠的白色纸板象征堆叠的时间，像一页页可以被翻动的时间切片。前方管道通往未来，后方支路回望过去；整台机器并非单向冲向未来，而是在过去、现在与未来之间穿梭洄游。</p>
+      </article>
+      <article class="statement-col reveal" style="--delay:.2s">
+        <span class="eyebrow">03 / BODY</span>
+        <h3>关于身体</h3>
+        <p>相机是观测窗，渔轮是牵引索，手柄是操控台，玩具枪是能量喷口，渔网是时间之网。五件物品各自保留材料与动作，只在接合处让出一点自己，组成一台临时的身体。</p>
+      </article>
+    </div>
+
+    <div class="roles">
+      <div class="role reveal"><span>01</span><strong>捕捉</strong><small>照相机 / LENS</small><p>把流动的时间切成瞬间。</p></div>
+      <div class="role reveal" style="--delay:.06s"><span>02</span><strong>牵引</strong><small>渔轮 / REEL</small><p>把远处的坐标拉回掌心。</p></div>
+      <div class="role reveal" style="--delay:.12s"><span>03</span><strong>操控</strong><small>手柄 / CONTROL</small><p>选择时间，确认跃迁。</p></div>
+      <div class="role reveal" style="--delay:.18s"><span>04</span><strong>推进</strong><small>玩具枪 / LAUNCH</small><p>以能量迸发冲破壁垒。</p></div>
+      <div class="role reveal" style="--delay:.24s"><span>05</span><strong>打结</strong><small>渔网 / KNOT</small><p>让所有时刻彼此勾连。</p></div>
+    </div>
+
+    <div class="statement-close">
+      <div class="statement-close-copy reveal">
+        <span class="eyebrow">CLOSING / 结尾</span>
+        <p>这件作品把日常物件各自的功能意象，重构为一台时空穿梭装置。它们都是现实里与“画面、操控、捕捉、发射”相关的物品；组合在一起，把抽象的“时空穿梭”可视化。</p>
+        <p>不是冰冷的高科技，而是用普通人熟悉的旧物，造一台属于幻想的时空飞行器。</p>
+      </div>
+      <div class="statement-close-img reveal" style="--delay:.08s">
+        <img src="assets/img/final-angle.jpg" alt="综合模型正面全景，展开发光的白色层积底座" loading="lazy">
+      </div>
+    </div>
+
+    <footer class="site-footer" data-theme-zone="dark">
+      <div class="footer-top">
+        <span>时之洄游 / THE TIME MIGRATOR</span>
+        <span>综合设计 1 · 作业 01 / 大沢川地形研究 × 综合模型</span>
+        <span>2026</span>
+      </div>
+      <div class="footer-main">
+        <p class="footer-big">OSAWA<br>RIVER</p>
+        <div class="footer-credits">
+          <div><span>制作人</span><strong>吴天浩</strong></div>
+          <div><span>学号</span><strong>2026227093</strong></div>
+          <div><span>场地</span><strong>富士山・大沢川上游（大沢口）</strong></div>
+          <div><span>资料</span><strong>TOPO / OpenStreetMap · 作者拍摄与制作文件</strong></div>
+        </div>
+        <a href="#top" class="back-top">回到序章 <span aria-hidden="true">↑</span></a>
+      </div>
+      <div class="footer-bottom">
+        <span>FIELD STUDY + OBJECT ASSEMBLY / 2026</span>
+        <span>SCROLL BACK TO THE BEGINNING</span>
+      </div>
+    </footer>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="图片查看器">
+  <button class="lightbox-close" id="lightboxClose" type="button" aria-label="关闭">CLOSE <span aria-hidden="true">×</span></button>
+  <button class="lightbox-arrow prev" id="lightboxPrev" type="button" aria-label="上一张">←</button>
+  <figure class="lightbox-figure">
+    <img id="lightboxImg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=" alt="">
+    <figcaption><span id="lightboxCaption"></span><span id="lightboxCount"></span></figcaption>
+  </figure>
+  <button class="lightbox-arrow next" id="lightboxNext" type="button" aria-label="下一张">→</button>
+</div>
+
+<noscript>
+  <style>
+    .cursor,.menu,.rail,.orbit-hint{display:none!important}
+    .reveal{opacity:1!important;transform:none!important}
+    .hero-title span{opacity:1!important;transform:none!important}
+  </style>
+</noscript>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
